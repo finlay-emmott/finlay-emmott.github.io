@@ -16,7 +16,7 @@ function addButton(){
 	var btn = document.createElement("button");
 	
 	btn.innerHTML = "CLICK ME";
-	btn.onclick = function(){alert('oh no! up the ra! We love Micheal Collins <3'); return false;}
+	btn.onclick = function(){alert('sorryy... nothing to see here :('); return false;}
 	document.body.appendChild(btn);
 }
 
