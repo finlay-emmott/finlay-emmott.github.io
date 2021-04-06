@@ -1,7 +1,37 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+	<title>Bike site</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
 <body>
-<h1>Hello and welcome to literally the most boring website in the world</h1>
-<h2><a href="page1.html">CLICK ME</h2>
+<nav id="sideNav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	<a href="#home">HOME</a>
+	<a href="#about">About</a>
+	<a href="#contact">Contact</a>
+</nav>
+
+<span onclick="openNav()">open</span>
+
+<div id="div1">Insert text above this</div>
+
+<main>
+<nav>
+<ul id="mainMenu">
+	<li><a href="#home">HOME</a></li>
+	<li><a href="#about">About</a></li>
+	<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</main>
+
+<div id="app">
+</div>
+
+<script src="script.js"></script>
 </body>
+
 </html>
