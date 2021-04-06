@@ -16,7 +16,7 @@ function addButton(){
 	var btn = document.createElement("button");
 	
 	btn.innerHTML = "CLICK ME";
-	btn.onclick = function(){alert('oh no! Grainne made no cheesecake!'); return false;}
+	btn.onclick = function(){alert('oh no! you smell like cabbage...'); return false;}
 	document.body.appendChild(btn);
 }
 
