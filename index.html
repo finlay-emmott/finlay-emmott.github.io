@@ -4,34 +4,40 @@
 <head>
 	<title>Bike site</title>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body id='increase'>
 <nav id="sideNav" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	<a href="#home">HOME</a>
-	<a href="#about">About</a>
-	<a href="#contact">Contact</a>
+	<a id="textSize">Text size</a>
+	<a id='volume'>Volume</a>
+	<a id='home'>Home</a>
+	<a id='goFull'>Full screen</a>
+	<a id='helpMe'>Help</a>
 </nav>
 
-<span onclick="openNav()">open</span>
-
-<div id="div1">Insert text above this</div>
-
-<main>
-<nav>
-<ul id="mainMenu">
-	<li><a href="#home">HOME</a></li>
-	<li><a href="#about">About</a></li>
-	<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-</main>
-
-<div id="app">
-</div>
+<img src='menu.png' onclick="openNav()"></img>
 
 <script src="script.js"></script>
+
+<div id='changeMe' class='bigChange'>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" id='close'>&times;</span>
+    <h1 class='page-head'>Help</h1>
+	<p>How to play</p>
+  </div>
+
+</div>
+
 </body>
 
 </html>
