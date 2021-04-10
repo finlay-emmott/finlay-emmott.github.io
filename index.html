@@ -12,14 +12,25 @@
 <body id='increase'>
 <nav id="sideNav" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	<a id="textSize">Text size</a>
-	<a id='volume'>Volume</a>
-	<a id='home'>Home</a>
-	<a id='goFull'>Full screen</a>
-	<a id='helpMe'>Help</a>
+	<a id="textSize" class='menuBut'>Text size</a>
+	<a id='volume' class='menuBut'>Volume</a>
+	<div class="slidecontainer">
+		<input type="range" min="0" max="100" value="100" class="slider" id="myRange">
+	</div>
+	<a id='home' class='menuBut'>Home</a>
+	<a id='goFull' class='menuBut'>Full screen</a>
+	<a id='helpMe' class='menuBut'>Help</a>
 </nav>
 
 <img src='menu.png' onclick="openNav()"></img>
+
+<audio src='cheer.mp3' id='cheer' class='audio'></audio>
+<audio src='horn.mp3' id='horn' class='audio'></audio>
+<audio src='background.mp3' id='back' class='audio'></audio>
+<audio src='heart.mp3' id='heart' class='audio'></audio>
+<audio src='crash.mp3' id='crash' class='audio'></audio>
+<audio src='heli.mp3' id='heli' class='audio'></audio>
+<audio src='hosp.mp3' id='hosp' class='audio'></audio>
 
 <script src="script.js"></script>
 
@@ -32,12 +43,41 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close" id='close'>&times;</span>
-    <h1 class='page-head'>Help</h1>
-	<p>How to play</p>
+    <h1 class='page-head'>Help and information</h1>
+	<h2 class='modal-head'>How to play</h2>
+	<p class='desc-style'>Playing bike race is easy! Click through the options to choose your bike and pick your lines down the track.</p>
+	<h2 class='modal-head'>Accessibility</h2>
+	<p class='desc-style'>In the menu (located top left) it is possible to adjust the font size, volume levels, and go full-screen for a more immersive experience.</p>
   </div>
 
 </div>
 
+<!-- The Modal -->
+<div id="bike-modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" id='close2'>&times;</span>
+    <h1 class='page-head'>Bike parts</h1>
+	<p class='desc-style'>You must pick one fork, shock, and frame to continue down the hill!</p>
+	<h2 class='modal-head'>Fork</h2>
+	<p class='desc-style'>The forks on a bike absorb impact through the front wheel as you go over choppy terrain, land big jumps or fly off drops. Depending on the bike they have bettwen 100 and 200mm of travel, with the most travel on DH bikes and the least on cross country. Forks can be built using air springs or traditional coild, both of which have differnt pros and cons to the ride feel.</p>
+	<h2 class='modal-head'>Shock</h2>
+	<p class='desc-style'>The shock on a bike deasl with the impacts through the rear wheel. These too come in air and coil varients, which have significant differences to the small bump sensitivity of the bike. Rear shocks are measures in stroke length, which when combined with complex frame geometry provide between 100 and 200 mm of travel. </p>
+	<h2 class='modal-head'>Frame</h2>
+	<p class='desc-style'>The frame is the third key component of the bike. Frames are usually carbon, for a stiffer frame, or aluminium for a harder wearing one. Frames are built to be as comfortable as possible when riding. Downhill bikes have slack gemoetry to give extra stability and confidence on steep gnarly decensts, whereas cross country-bikes are more upright, fast on flats, and comofrtable to climb on.</p>
+  </div>
+
+</div>
+
+<div id="sound-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id='close2'>&times;</span>
+    <h1 class='page-head'>Welcome</h1>
+	<p class='desc-style'>Clicking yes will close this pop-up and start the background music. Music and sound affects play throughout this game. You can adjust the volume within the settings menu (top left) Enjoy!</p>
+	<button class='btn-group' onclick='playOpen()'>Yes</button>
+ </div>
+ </div>
 </body>
 
 </html>

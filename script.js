@@ -8,6 +8,7 @@ var score = 0;
 function buildPage(){
 	
 	score=0;
+	volume();
 	goHome();
 	welcomePage();
 	helpModal();
@@ -23,6 +24,7 @@ function welcomePage(){
 	var modal = document.getElementById("myModal");
 	var leader = document.createElement('button');
 	var mtb = document.createElement('button');
+	var soundModal = document.getElementById('sound-modal');
 	
 	const newContent = document.createTextNode("Welcome to bike race");
 	
@@ -30,22 +32,24 @@ function welcomePage(){
 	heading.className = 'page-head';
 	
 	start.innerHTML = "Start Game";
-	start.className = 'btn-group';
+	start.className = 'btn-group btn-home';
 	start.id = 'startGame';
 
 	help.innerHTML = "Help";
-	help.className = 'btn-group';
+	help.className = 'btn-group btn-home';
 	help.id = 'modal-btn';
 	
-	leader.innerHTML = 'View the leaderboard...';
-	leader.className = 'btn-group';
+	leader.innerHTML = 'View the leaderboard';
+	leader.className = 'btn-group btn-home';
 	
-	mtb.innerHTML = 'Learn more about mtb!';
-	mtb.className = 'btn-group';
+	mtb.innerHTML = 'Learn more about MTB';
+	mtb.className = 'btn-group btn-home';
 	
+	var audio = document.getElementById('back');
 	
 	start.onclick = function(){
 		divIn.innerHTML = "";
+		audio.play();
 		bikeSelect();
 	}
 	
@@ -81,14 +85,19 @@ function welcomePage(){
 	fontSet();
 	fontChange();
 	
+	soundModal.style.display = 'block';
+	
 }
-
 
 function startGate(){
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var btn = document.createElement("button");
 	var desc = document.createElement("p");
+	var img = document.createElement('img');
+	
+	img.src = 'startgate.jpg';
+	img.className = 'graphic';
 	
 	desc.innerHTML = "As the rider in front of you dissapears down the hill you take your place in the start gate. Pulling on your helmet and adjusting your goggles as you prepare to race in your first downhill world cup. Your heart quickens as you grip the bars and stand up on your pedals. As the third beep sounds you power out of the gate. A perfect start."
 	desc.className = 'desc-style'
@@ -97,16 +106,22 @@ function startGate(){
 	heading.className = 'page-head';
 	
 	btn.innerHTML = "Go go go!";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
 	btn.id = 'option1';
+	
+	var audio = document.getElementById('heart');
+	var audio2 = document.getElementById('back')
 	
 	btn.onclick = function(){
 		divIn.innerHTML = '';
+		audio.pause();
+		audio2.play();
 		firstCorner();
 	}
 	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
+	divIn.appendChild(img);
 	divIn.appendChild(btn);
 	fontSet();
 	fontChange();
@@ -137,6 +152,13 @@ function fontSet() {
 		var button = buttons[i];
 		button.style.fontSize = percentage;
 	}
+	
+	var paras = document.getElementsByClassName('desc-style');
+	
+	for (var i = 0; i < paras.length; i++){
+		var para = paras[i];
+		para.style.fontSize = percentage;
+	}
 }
 	
 function fontChange() {
@@ -146,15 +168,23 @@ function fontChange() {
 		fontS.onclick = function() {
 		
 		var buttons = document.getElementsByClassName('btn-group');
+		var paras = document.getElementsByClassName('desc-style');
 		
-		if (currentSize < 160){
+		if (currentSize < 140){
 			currentSize = currentSize + increaseS;
 			percentage = currentSize + '%'
+			
 			document.getElementById('changeMe').style.fontSize = percentage;
 			
 			for (var i = 0; i < buttons.length; i++){
 				var button = buttons[i];
 				button.style.fontSize = percentage;
+			}
+		
+	
+			for (var i = 0; i < paras.length; i++){
+				var para = paras[i];
+				para.style.fontSize = percentage;
 			}
 			
 		} else {
@@ -174,75 +204,23 @@ function learnMTB() {
 	var divIn = document.getElementById('changeMe');
 	
 	var heading = document.createElement('h1');
-	
-	heading.innerHTML = 'Learn some more about MTB here!';
+	heading.innerHTML = 'Want to get to know more about MTB?';
 	heading.className = 'page-head';
 	
-	var bigBox = document.createElement('div');
-	bigBox.className = 'grid-wrap-learn';
+	var desc = document.createElement('p');
+	desc.className = 'desc-style';
+	desc.innerHTML = 'Here are some cool videos to watch to inspire you to get out, explore, and ride your bike!';
 	
-	var first = document.createElement('article');
-	var second = document.createElement('aside');
+	var list = document.createElement('ul');
 	
-	first.className = 'double';
-	second.className = 'double';
-	first.id = 'first';
-	second.id = 'second';
-	
-	first.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar ligula sem, id accumsan neque semper eu. Praesent venenatis velit quis lorem dapibus, ut dictum augue lacinia. Nullam nec pellentesque ex, id porta leo. Donec lobortis turpis a mi congue lacinia. Nunc ultricies sodales diam, vel egestas mi iaculis sed. Aliquam vel tristique massa. Aenean maximus sollicitudin viverra. Nunc pharetra laoreet venenatis. Mauris viverra lobortis scelerisque. In mattis ullamcorper nulla, vel ultricies orci tincidunt vitae.';
-	second.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar ligula sem, id accumsan neque semper eu. Praesent venenatis velit quis lorem dapibus, ut dictum augue lacinia. Nullam nec pellentesque ex, id porta leo. Donec lobortis turpis a mi congue lacinia. Nunc ultricies sodales diam, vel egestas mi iaculis sed. Aliquam vel tristique massa. Aenean maximus sollicitudin viverra. Nunc pharetra laoreet venenatis. Mauris viverra lobortis scelerisque. In mattis ullamcorper nulla, vel ultricies orci tincidunt vitae.';
-	
-	var third = document.createElement('article');
-	
-	third.className = 'wide';
-	third.id = 'third';
-	third.innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pulvinar ligula sem, id accumsan neque semper eu. Praesent venenatis velit quis lorem dapibus, ut dictum augue lacinia. Nullam nec pellentesque ex, id porta leo. Donec lobortis turpis a mi congue lacinia. Nunc ultricies sodales diam, vel egestas mi iaculis sed. Aliquam vel tristique massa. Aenean maximus sollicitudin viverra. Nunc pharetra laoreet venenatis. Mauris viverra lobortis scelerisque. In mattis ullamcorper nulla, vel ultricies orci tincidunt vitae.';
-	
-	var image1 = document.createElement('aside');
-	var image2 = document.createElement('aside');
-	var image3 = document.createElement('aside');
-	
-	image1.className = 'imageRow';
-	image2.className = 'imageRow';
-	image3.className = 'imageRow';
-	
-	image1.id =  'image1';
-	image2.id =  'image2';
-	image3.id =  'image3';
-	
-	image1.innerHTML = 'This is an image';
-	image2.innerHTML = 'This is an image';
-	image3.innerHTML = 'This is an image';
-	
-	var fourth = document.createElement('article');
-	
-	fourth.className = 'wide';
-	fourth.id = 'fourth';
-	fourth.innerHTML = 'This is another block of wide text...';
-	
-	var fifth = document.createElement('article');
-	var sixth = document.createElement('aside');
-	
-	fifth.className = 'double';
-	sixth.className = 'double';
-	
-	fifth.id = 'fifth';
-	sixth.id = 'sixth';
-	
-	fifth.innerHTML = 'some text here maybe';
-	sixth.innerHTML = 'maybe an image here?';
-	
+	list.className = 'list';
+	list.innerHTML = "<li class='list-item'><a href='https://www.youtube.com/watch?v=K_7k3fnxPq0&ab_channel=RedBull' target='_blank'>Danny MacAskill - Wee day out</a></li><li class='list-item'><a href='https://www.youtube.com/watch?v=yotOZVELSMc&ab_channel=IFHTFilms' target='_blank'>IHFT How to buy a mountain bike </a></li><li class='list-item'></li><li class='list-item'><a href='https://www.youtube.com/watch?v=L4268ai-XHI&ab_channel=TheAthertons' target='_blank'>Gee Atherton - The slate line</a></li><li class='list-item'><a href='https://www.youtube.com/channel/UCu8YylsPiu9XfaQC74Hr_Gw' target='_blank'>Berm Peak</a></li>";
 	divIn.appendChild(heading);
-	bigBox.appendChild(first);
-	bigBox.appendChild(second);
-	bigBox.appendChild(third);
-	bigBox.appendChild(image1);
-	bigBox.appendChild(image2);
-	bigBox.appendChild(image3);
-	bigBox.appendChild(fourth);
-	bigBox.appendChild(fifth);
-	bigBox.appendChild(sixth);
-	divIn.appendChild(bigBox);
+	divIn.appendChild(desc);
+	divIn.appendChild(list);
+
+	
+	fontSet();
 }
 
 function bikeSelect() {
@@ -257,7 +235,7 @@ function bikeSelect() {
 	heading.innerHTML = 'Please choose your bike!';
 	heading.className = 'page-head';
 	
-	desc.innerHTML = "First up you need to build your bike. Different components may affect your finish score! Once you are happy with your selection click 'Continue' to start the race.";
+	desc.innerHTML = "First up you need to build your bike. Different components may affect your finish score! Once you are happy with your selection click 'Continue' to start the race. <span id='help-link'>Click here to learn more about bike parts.</span>";
 	desc.className = 'desc-style';
 	
 	var bigBox = document.createElement('div');
@@ -323,95 +301,129 @@ function bikeSelect() {
 	right2.className='grid-item';
 	right3.className='grid-item';
 	
+	var forkP = 0;
+	var shockP = 0;
+	var frameP = 0;
+	
+	var modal = document.getElementById("myModal");
+	
 	
 	
 	item1.onclick = function() {
-		item1.style.backgroundColor = 'pink';
+		item1.style.backgroundColor = '#ffb2f4';
 		item2.style.backgroundColor = 'transparent';
 		item3.style.backgroundColor = 'transparent';
 		
 		right1.src = 'RS.png';
 		forkScore = 30;
+		forkP = 1;
 	}
 	item2.onclick = function() {
 		item1.style.backgroundColor = 'transparent';
-		item2.style.backgroundColor = 'pink';
+		item2.style.backgroundColor = '#ffb2f4';
 		item3.style.backgroundColor = 'transparent';
 		
 		right1.src = 'FOX.png';
 		forkScore = 10;
+		forkP = 1;
 	}
 	item3.onclick = function() {
 		item1.style.backgroundColor = 'transparent';
 		item2.style.backgroundColor = 'transparent';
-		item3.style.backgroundColor = 'pink';
+		item3.style.backgroundColor = '#ffb2f4';
 		
 		right1.src = 'OHLINS.png';
 		forkScore = 30;
+		forkP = 1;
 	}
 	item4.onclick = function() {
-		item4.style.backgroundColor = 'pink';
+		item4.style.backgroundColor = '#ffb2f4';
 		item5.style.backgroundColor = 'transparent';
 		item6.style.backgroundColor = 'transparent';
 		
 		right2.src = 'RSS.png';
 		shockScore = 10;
+		shockP = 1;
 	}
 	item5.onclick = function() {
 		item4.style.backgroundColor = 'transparent';
-		item5.style.backgroundColor = 'pink';
+		item5.style.backgroundColor = '#ffb2f4';
 		item6.style.backgroundColor = 'transparent';
 		
 		right2.src = 'OHLINSS.png';
 		shockScore = 20;
+		shockP = 1;
 	}
 	item6.onclick = function() {
 		item4.style.backgroundColor = 'transparent';
 		item5.style.backgroundColor = 'transparent';
-		item6.style.backgroundColor = 'pink';
+		item6.style.backgroundColor = '#ffb2f4';
 		
 		right2.src = 'FOXS.png';
 		shockScore = 30;
+		shockP = 1;
 	}
 	item7.onclick = function() {
-		item7.style.backgroundColor = 'pink';
+		item7.style.backgroundColor = '#ffb2f4';
 		item8.style.backgroundColor = 'transparent';
 		item9.style.backgroundColor = 'transparent';
 		
 		right3.src = 'ALT.png';
 		frameScore = 10;
+		frameP = 1;
 	}
 	item8.onclick = function() {
 		item7.style.backgroundColor = 'transparent';
-		item8.style.backgroundColor = 'pink';
+		item8.style.backgroundColor = '#ffb2f4';
 		item9.style.backgroundColor = 'transparent';
 		
 		right3.src = 'MOND.png';
 		frameScore = 20;
+		frameP = 1;
 	}
 	item9.onclick = function() {
 		item7.style.backgroundColor = 'transparent';
 		item8.style.backgroundColor = 'transparent';
-		item9.style.backgroundColor = 'pink';
+		item9.style.backgroundColor = '#ffb2f4';
 		
 		right3.src = 'COVE.png';
 		frameScore = 30;
+		frameP = 1;
 	}
 	
+	//helpLink.className = 'desc-style';
+	//helpLink.innerHTML = 'Need some more info on bike parts?'
+	//helpLink.id = 'help-link';
+	
+	var audio = document.getElementById('heart');
+	var audio2 = document.getElementById('back');
+	
 	var btn = document.createElement('button');
-	
 	btn.innerHTML = "Continue...";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
 	btn.id = 'bikeButton';
-	
+			
 	btn.onclick = function() {
+		var total = forkP + shockP + frameP;
+		
+		if(total == 3){
 		score = (frameScore + shockScore + forkScore);
 		console.log(score);
 		divIn.innerHTML = "";
+		audio2.pause();
+		audio.play();
 		startGate();
+		
+		
+		
+		//podium();
+		} else { 
+			alert("You need to pick one fork, frame and shock before continuing!");
+	}
 	}
 
 	divIn.appendChild(heading);
+	//desc.appendChild(helpLink);
 	divIn.appendChild(desc);
 	
 	divIn.appendChild(bigBox);
@@ -435,6 +447,9 @@ function bikeSelect() {
 	rightBox.appendChild(right3);
 	
 	divIn.appendChild(btn);
+	bikeModal();
+	
+	fontSet();
 	
 }
 
@@ -446,7 +461,10 @@ function firstCorner(){
 	var btn2 = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'test.jpg';
+	var btnBlock = document.createElement('div');
+	btnBlock.className = 'btn-choice';
+	
+	img.src = 'firstCorner.jpg';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'You approach the first corner...';
@@ -456,28 +474,36 @@ function firstCorner(){
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "Stay high";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
 	
 	btn2.innerHTML = "Tight inside";
-	btn2.className = 'btn-group';
+	btn2.className = 'btn-group btn-choice';
+	
+	var audio = document.getElementById('crash');
+	var audio2 = document.getElementById('back');
 	
 	btn.onclick = function(){
 		score = score - 10;
 		divIn.innerHTML = '';
+		audio2.pause();
+		audio.play();
 		miniCrash()
 	}
 	
 	btn2.onclick = function(){
 		score = score + 10;
 		divIn.innerHTML = '';
+		audio2.play();
 		bigJump();
 	}
 	
+	btnBlock.appendChild(btn);
+	btnBlock.appendChild(btn2);
+	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
-	//divIn.appendChild(img);
-	divIn.appendChild(btn);
-	divIn.appendChild(btn2);
+	divIn.appendChild(img);
+	divIn.appendChild(btnBlock);
 	fontSet();
 	fontChange();
 }
@@ -489,7 +515,7 @@ function miniCrash(){
 	var btn = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'test.jpg';
+	img.src = 'crash.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'Uh-oh... You came off the track!';
@@ -499,17 +525,22 @@ function miniCrash(){
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "Get back on!";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
+	
+	var audio = document.getElementById('crash');
+	var audio2 = document.getElementById('back');
 	
 	btn.onclick = function(){
 		divIn.innerHTML = '';
+		audio.pause();
+		audio2.play()
 		bigJump();
 		
 	}
 	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
-	//divIn.appendChild(img);
+	divIn.appendChild(img);
 	divIn.appendChild(btn);
 	fontSet();
 	fontChange();
@@ -523,7 +554,7 @@ function bigJump(){
 	var btn2 = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'test.jpg';
+	img.src = 'jump.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = "Woah there's a big jump ahead";
@@ -533,10 +564,10 @@ function bigJump(){
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "Squash";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
 	
 	btn2.innerHTML = "Flip";
-	btn2.className = 'btn-group';
+	btn2.className = 'btn-group btn-choice';
 	
 	btn.onclick = function(){
 		score = score + 15;
@@ -545,18 +576,28 @@ function bigJump(){
 		
 	}
 	
+	var audio = document.getElementById('cheer');
+	var audio2 = document.getElementById('back');
+	
 	btn2.onclick = function(){
 		score = score + 20;
 		divIn.innerHTML = '';
+		audio2.pause;
+		audio.play();
 		backflip();
 		
 	}
 	
+	var btnBlock = document.createElement('div');
+	btnBlock.className = 'btn-choice';
+	
+	btnBlock.appendChild(btn);
+	btnBlock.appendChild(btn2);
+	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
-	//divIn.appendChild(img);
-	divIn.appendChild(btn);
-	divIn.appendChild(btn2);
+	divIn.appendChild(img);
+	divIn.appendChild(btnBlock);
 	fontSet();
 	fontChange();
 }
@@ -569,7 +610,7 @@ function treeCorner(){
 	var btn2 = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'test.jpg';
+	img.src = 'corner.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'The corner of tech!';
@@ -579,10 +620,10 @@ function treeCorner(){
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "Hug the tree!";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
 	
 	btn2.innerHTML = "Round the roots";
-	btn2.className = 'btn-group';
+	btn2.className = 'btn-group btn-choice';
 	
 	btn.onclick = function(){
 		score = score + 10;
@@ -596,11 +637,16 @@ function treeCorner(){
 		motorway();
 	}
 	
+	var btnBlock = document.createElement('div');
+	btnBlock.className = 'btn-choice';
+	
+	btnBlock.appendChild(btn);
+	btnBlock.appendChild(btn2);
+	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
-	//divIn.appendChild(img);
-	divIn.appendChild(btn);
-	divIn.appendChild(btn2);
+	divIn.appendChild(img);
+	divIn.appendChild(btnBlock);
 	fontSet();
 	fontChange();
 }
@@ -612,7 +658,7 @@ function backflip(){
 	var btn = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'test.jpg';
+	img.src = 'back.jpg';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'That backflip was INSANE';
@@ -622,16 +668,21 @@ function backflip(){
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "Keep shredding!";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
+	
+	var audio = document.getElementById('cheer');
+	var audio2 = document.getElementById('back');
 	
 	btn.onclick = function(){
 		divIn.innerHTML = '';
+		audio.pause();
+		audio2.play();
 		treeCorner();
 	}
 	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
-	//divIn.appendChild(img);
+	divIn.appendChild(img);
 	divIn.appendChild(btn);
 	fontSet();
 	fontChange();
@@ -645,7 +696,7 @@ function motorway(){
 	var btn2 = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'test.jpg';
+	img.src = 'motorway.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'The fastes section of track lies ahead...';
@@ -655,10 +706,10 @@ function motorway(){
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "Peddle peddle peddle";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
 	
 	btn2.innerHTML = "Adjust your fork! #BruniMode";
-	btn2.className = 'btn-group';
+	btn2.className = 'btn-group btn-choice';
 	
 	btn.onclick = function(){
 		score = score + 15;
@@ -673,11 +724,16 @@ function motorway(){
 		
 	}
 	
+	var btnBlock = document.createElement('div');
+	btnBlock.className = 'btn-choice';
+	
+	btnBlock.appendChild(btn);
+	btnBlock.appendChild(btn2);
+	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
-	//divIn.appendChild(img);
-	divIn.appendChild(btn);
-	divIn.appendChild(btn2);
+	divIn.appendChild(img);
+	divIn.appendChild(btnBlock);;
 	fontSet();
 	fontChange();
 }
@@ -690,7 +746,7 @@ function techSection(){
 	var btn2 = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'test.jpg';
+	img.src = 'tech.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'The risky tech section';
@@ -700,28 +756,42 @@ function techSection(){
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "Straight line speed!";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
 	
 	btn2.innerHTML = "Trickier outside line";
-	btn2.className = 'btn-group';
+	btn2.className = 'btn-group btn-choice';
+	var audio2 = document.getElementById('back');
+	
+	var audio = document.getElementById('heli');
 	
 	btn.onclick = function(){
 		score = 0;
 		divIn.innerHTML = '';
-		bigCrash();
+		audio2.pause();
+		audio.play(heli);
+		heliEvac();
 	}
+	
+	var cheerAudio = document.getElementById('cheer');
 	
 	btn2.onclick = function(){
 		score = score + 12;
 		divIn.innerHTML = '';
+		audio2.pause();
+		cheerAudio.play();
 		finishStraight();
 	}
 	
+	var btnBlock = document.createElement('div');
+	btnBlock.className = 'btn-choice';
+	
+	btnBlock.appendChild(btn);
+	btnBlock.appendChild(btn2);
+	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
-	//divIn.appendChild(img);
-	divIn.appendChild(btn2);
-	divIn.appendChild(btn);
+	divIn.appendChild(img);
+	divIn.appendChild(btnBlock);
 	fontSet();
 	fontChange();
 }
@@ -733,7 +803,7 @@ function bruniMode(){
 	var btn = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'test.jpg';
+	img.src = 'bruni.jpg';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'You went.... BRUNI MODE!!!';
@@ -743,7 +813,7 @@ function bruniMode(){
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "Keep racing!";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
 	
 	btn.onclick = function(){
 		divIn.innerHTML = '';
@@ -752,7 +822,7 @@ function bruniMode(){
 	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
-	//divIn.appendChild(img);
+	divIn.appendChild(img);
 	divIn.appendChild(btn);
 	fontSet();
 	fontChange();
@@ -766,7 +836,7 @@ function finishStraight(){
 	var btn2 = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'test.jpg';
+	img.src = 'finish.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = "It's your chance to shine!";
@@ -776,28 +846,42 @@ function finishStraight(){
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "MASSIVE whip";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
 	
 	btn2.innerHTML = "No-hander!";
-	btn2.className = 'btn-group';
+	btn2.className = 'btn-group btn-choice';
+	
+	var cheerAudio = document.getElementById('cheer');
+	var hornAudio = document.getElementById('horn');
 	
 	btn.onclick = function(){
 		score = score + 15;
 		divIn.innerHTML = '';
+		cheerAudio.pause();
+		hornAudio.play();
 		podium();
+
 	}
 	
 	btn2.onclick = function(){
 		score = score + 14;
 		divIn.innerHTML = '';
+		cheerAudio.pause();
+		hornAudio.play();
 		podium();
+		
 	}
+	
+	var btnBlock = document.createElement('div');
+	btnBlock.className = 'btn-choice';
+	
+	btnBlock.appendChild(btn);
+	btnBlock.appendChild(btn2);
 	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
-	//divIn.appendChild(img);
-	divIn.appendChild(btn);
-	divIn.appendChild(btn2);
+	divIn.appendChild(img);
+	divIn.appendChild(btnBlock);
 	fontSet();
 	fontChange();
 }
@@ -809,7 +893,7 @@ function podium(){
 	var btn = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'test.jpg';
+	img.src = 'podium.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'THE PODIUM';
@@ -819,48 +903,19 @@ function podium(){
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "See the results...";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
+	
+	var hornAudio = document.getElementById('horn');
 	
 	btn.onclick = function(){
 		divIn.innerHTML = '';
 		scoreStore();
+		hornAudio.pause();
 	}
 	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
-	//divIn.appendChild(img);
-	divIn.appendChild(btn);
-	fontSet();
-	fontChange();
-}
-
-function bigCrash(){
-	var divIn = document.getElementById('changeMe');
-	const heading = document.createElement("h1");
-	var desc = document.createElement('p');
-	var btn = document.createElement("button");
-	var img = document.createElement('img');
-	
-	img.src = 'test.jpg';
-	img.className = 'graphic';
-	
-	heading.innerHTML = 'Ouch...';
-	heading.className = 'page-head';
-	
-	desc.innerHTML = "Well that didn't go to plan... looks like we're going to have to call the medic team! At least you were the last to race...";
-	desc.className = 'desc-style';
-	
-	btn.innerHTML = "Call medical support!";
-	btn.className = 'btn-group';
-	
-	btn.onclick = function(){
-		divIn.innerHTML = '';
-		heliEvac();
-	}
-	
-	divIn.appendChild(heading);
-	divIn.appendChild(desc);
-	//divIn.appendChild(img);
+	divIn.appendChild(img);
 	divIn.appendChild(btn);
 	fontSet();
 	fontChange();
@@ -873,27 +928,32 @@ function heliEvac(){
 	var btn = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'test.jpg';
+	img.src = 'air.jpg';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'In the helicopter...';
 	heading.className = 'page-head';
 	
-	desc.innerHTML = "A quick examination later and you're in the air ambulance on the way to hosipital... not the way you wanted the race to go. But at least you've got  agood story!";
+	desc.innerHTML = "Well that loos sore... looks like it's time to get taken to the nearest hospital in the air ambulance. At least you get a ride in the helicopter?";
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "Take me to the hospital...";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
+	
+	var audio = document.getElementById('heli');
+	var audio2 = document.getElementById('hosp');
 	
 	btn.onclick = function(){
 		divIn.innerHTML = '';
+		audio.pause();
+		audio2.play();
 		hospital();
 		
 	}
 	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
-	//divIn.appendChild(img);
+	divIn.appendChild(img);
 	divIn.appendChild(btn);
 	fontSet();
 	fontChange();
@@ -906,7 +966,7 @@ function hospital(){
 	var btn = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'test.jpg';
+	img.src = 'hosp.jpg';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'Much better! Better luck next time...';
@@ -916,16 +976,21 @@ function hospital(){
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "Show me the leaderboard...";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
+	
+	var audio = document.getElementById('hosp');
+	var audio2 = document.getElementById('back');
 	
 	btn.onclick = function(){
 		divIn.innerHTML = '';
+		audio.pause();
+		audio2.play();
 		scoreStore();
 	}
 	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
-	//divIn.appendChild(img);
+	divIn.appendChild(img);
 	divIn.appendChild(btn);
 	fontSet();
 	fontChange();
@@ -950,6 +1015,7 @@ function scoreStore(){
 	var newKey = keyCount + 1;
 	
 	var person = {
+		num: newKey,
 		name: name,
 		score: score, 
 	};
@@ -991,7 +1057,7 @@ function leaderboard(){
 	desc.className = 'desc-style';
 	
 	btn.innerHTML = "Go home";
-	btn.className = 'btn-group';
+	btn.className = 'btn-group btn-choice';
 	
 	btn.onclick = function(){
 		location.reload();
@@ -999,8 +1065,6 @@ function leaderboard(){
 	}
 	
 	var person = {};
-	var nameD = {};
-	var scoreD = {};
 	
 	var showName = document.createElement('aside');
 	var showScore = document.createElement('aside');
@@ -1017,50 +1081,74 @@ function leaderboard(){
 	board.appendChild(showName);
 	board.appendChild(showScore);
 	
+	var keyCount = 0;
+	
 	for(var key in localStorage){
-		
-		if(key == 'length' || key == 'clear' || key == 'getItem' || key == 'key' || key == 'removeItem' || key == 'setItem'){
-		} else {
-			
-		person = JSON.parse(localStorage.getItem(key));
-		console.log(person);
-		
-		nameD['name' + key] = document.createElement('aside');
-		nameD['name' + key].innerHTML = person.name;
-		nameD['name' + key].className = 'name-item';
-		
-		scoreD['score' + key] = document.createElement('aside');
-		scoreD['score' + key].innerHTML = person.score;
-		scoreD['score' + key].className = 'score-item';
-		
-		
-		board.appendChild(nameD['name' + key]);
-		board.appendChild(scoreD['score' + key]);
-		}
-		
+		keyCount = keyCount + 1;
 	}
+	
+	keyCount = keyCount - 6;
+	
+	var personStore = [];
+	var personSort = [];
+	
+	for(var key in localStorage){
+		if(key == 'length' || key == 'clear' || key == 'getItem' || key == 'key' || key == 'removeItem' || key == 'setItem'){
+		
+		} else {
+			person = JSON.parse(localStorage.getItem(key));
+			personStore.push(person);
+		}
+	}
+	
+	personStore.sort(compareAge);
+	console.log(personStore);
+		
+	for(var i = 0; i < personStore.length; i++){
+		var nameD = {};
+		var scoreD = {};
+		
+		nameD['name' + personStore[i].num] = document.createElement('aside');
+		if(personStore[i].name == null){
+			nameD['name' + personStore[i].num].innerHTML = 'No username';
+		} else {
+			nameD['name' + personStore[i].num].innerHTML = personStore[i].name;
+		}
+		nameD['name' + personStore[i].num].className = 'name-item';
+	
+		scoreD['score' + personStore[i].num] = document.createElement('aside');
+		scoreD['score' + personStore[i].num].innerHTML = personStore[i].score;
+		scoreD['score' + personStore[i].num].className = 'score-item';
+		
+		if(i == 0){
+			nameD['name' + personStore[i].num].id = 'high-name';
+			scoreD['score' + personStore[i].num].id = 'high-score';
+		} else if (i == 1){
+			nameD['name' + personStore[i].num].id = 'second-name';
+			scoreD['score' + personStore[i].num].id = 'second-score';
+		} else if (i == 2){
+			nameD['name' + personStore[i].num].id = 'third-name';
+			scoreD['score' + personStore[i].num].id = 'third-score';
+		}
+
+		
+		board.appendChild(nameD['name' + personStore[i].num]);
+		board.appendChild(scoreD['score' + personStore[i].num]);
+	}
+
 	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
 	divIn.appendChild(board);
-	//divIn.appendChild(img);
 	divIn.appendChild(btn);
 	
 	fontSet();
 	fontChange();
 }
 
-
-
-
-
-
-
-
-
-
-
-
+function compareAge(a,b){
+		return b.score - a.score;
+}
 
 function helpModal(){
 	var fs = document.getElementById('goFull');
@@ -1093,6 +1181,26 @@ function helpModal(){
 	}
 }
 
+function bikeModal() {
+	var elem = document.getElementById('help-link');
+	var modal = document.getElementById("bike-modal");
+	var span = document.getElementsByClassName("close")[1];
+	
+	elem.onclick = function(){
+		modal.style.display = "block"
+	}
+	
+	span.onclick = function() {
+		modal.style.display = "none";
+	}
+	
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	}
+}
+
 function openFullscreen(elem) {
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
@@ -1105,10 +1213,30 @@ function openFullscreen(elem) {
 
 function openNav(){
 	document.getElementById("sideNav").style.width = "250px";
-	document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+	document.getElementById('changeMe').style.opacity = "0.5";
 }
 
 function closeNav(){
 	document.getElementById("sideNav").style.width = "0";
-	document.body.style.backgroundColor = "white";
+	//document.body.style.backgroundColor = "white";
+	document.getElementById('changeMe').style.opacity = "1";
+}
+
+function volume(){
+	var slider = document.getElementById('myRange');
+	var audios = document.getElementsByClassName('audio');
+	
+	slider.addEventListener('input', function(){
+		for(var i = 0; i < audios.length; i++){
+			audios[i].volume = (slider.value / 100);
+		}
+		console.log(slider.value);
+	}, false);
+}
+
+ function playOpen(){
+	var backT = document.getElementById('back');
+	var modal = document.getElementById('sound-modal');
+	backT.play();
+	modal.style.display = "none";
 }
