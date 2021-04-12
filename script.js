@@ -1,3 +1,10 @@
+// Bike Race JS Script by Finlay Emmott
+// Help from a variety of websites was used throughout, due to repetition of features they have been listef here:
+// https://blog.logrocket.com/how-to-dynamically-create-javascript-elements-with-event-handlers/
+// https://stackoverflow.com/questions/195951/how-can-i-change-an-elements-class-with-javascript
+// https://stackoverflow.com/questions/9422974/createelement-with-id
+//
+
 document.body.onload = buildPage;
 
 var percentage = '';
@@ -7,6 +14,7 @@ var score = 0;
 
 function buildPage(){
 	
+	//setup game
 	score=0;
 	volume();
 	goHome();
@@ -16,6 +24,8 @@ function buildPage(){
 }
 
 function welcomePage(){
+	//build and display welcome options to the user
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var start = document.createElement("button");
@@ -27,7 +37,6 @@ function welcomePage(){
 	var soundModal = document.getElementById('sound-modal');
 	
 	const newContent = document.createTextNode("Welcome to bike race");
-	
 	heading.appendChild(newContent);
 	heading.className = 'page-head';
 	
@@ -90,6 +99,8 @@ function welcomePage(){
 }
 
 function startGate(){
+	//display the start gate
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var btn = document.createElement("button");
@@ -128,13 +139,14 @@ function startGate(){
 }
 
 function goHome(){
+	//reload the page to return home from the navigation button
+	//will confirm reload
+	
 	var divIn = document.getElementById('changeMe');
 	var gh = document.getElementById('home');
 	
 	gh.onclick = function(){
 		if(confirm('Are you sure you want to go home? This will delete your current progress.')){
-		//divIn.innerHTML = "";
-		//welcomePage();
 		location.reload();
 		return false;
 		} else {
@@ -144,6 +156,7 @@ function goHome(){
 }
 
 function fontSet() {
+	//sets the font size to the users preference
 	
 	document.getElementById('changeMe').style.fontSize = percentage;
 	var buttons = document.getElementsByClassName('btn-group');
@@ -162,6 +175,10 @@ function fontSet() {
 }
 	
 function fontChange() {
+	//changes the font size od elements on the page - help from:
+	//https://www.w3schools.com/jsref/prop_style_fontsize.asp
+	//https://stackoverflow.com/questions/30217146/changing-fontsize-for-a-class-using-javascript
+	
 	var fontS = document.getElementById('textSize');
 	var increaseS = 20;
 	
@@ -201,6 +218,8 @@ function fontChange() {
 }
 
 function learnMTB() {
+	//display the learn mtb page with video links
+	
 	var divIn = document.getElementById('changeMe');
 	
 	var heading = document.createElement('h1');
@@ -224,6 +243,8 @@ function learnMTB() {
 }
 
 function bikeSelect() {
+	//display the bike selection screen
+	
 	var divIn = document.getElementById('changeMe');
 	var forkScore = 0;
 	var shockScore = 0;
@@ -445,6 +466,8 @@ function bikeSelect() {
 }
 
 function firstCorner(){
+	//dispaly the first corner screen 
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
@@ -500,6 +523,8 @@ function firstCorner(){
 }
 
 function miniCrash(){
+	// display the mini crash scene
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
@@ -538,6 +563,8 @@ function miniCrash(){
 }
 
 function bigJump(){
+	//dispplay the big jump scene
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
@@ -594,6 +621,8 @@ function bigJump(){
 }
 
 function treeCorner(){
+	//display the tree corner scene
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
@@ -643,6 +672,8 @@ function treeCorner(){
 }
 
 function backflip(){
+	//display the backflip scene
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
@@ -680,6 +711,8 @@ function backflip(){
 }
 
 function motorway(){
+	//display the motorway scene
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
@@ -730,6 +763,8 @@ function motorway(){
 }
 
 function techSection(){
+	//dispaly the tech section scene
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
@@ -788,6 +823,8 @@ function techSection(){
 }
 
 function bruniMode(){
+	//display the bruni mode screen
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
@@ -820,6 +857,8 @@ function bruniMode(){
 }
 
 function finishStraight(){
+	//display the finish straight scene
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
@@ -878,14 +917,16 @@ function finishStraight(){
 }
 
 function podium(){
+	//display the podium scene
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
 	var btn = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'podium.png';
-	img.className = './graphics/graphic';
+	img.src = './graphics/podium.png';
+	img.className = 'grahpic';
 	
 	heading.innerHTML = 'THE PODIUM';
 	heading.className = 'page-head';
@@ -913,14 +954,15 @@ function podium(){
 }
 
 function heliEvac(){
+	//display the heli evac scene
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
 	var btn = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'air.jpg';
-	img.className = './graphics/graphic';
+	img.src = './graphics/air.jpg';
+	img.className = 'graphic';
 	
 	heading.innerHTML = 'In the helicopter...';
 	heading.className = 'page-head';
@@ -951,6 +993,8 @@ function heliEvac(){
 }
 
 function hospital(){
+	//display the hospital scene
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
@@ -988,6 +1032,9 @@ function hospital(){
 }
 
 function scoreStore(){
+	//get the current score and store it in localStorage, along with a username and unique identifier in a JSON format.
+	//https://stackoverflow.com/questions/42596022/get-multiple-values-with-local-storage
+	//https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 	
 	var keyCount = 0;
 	for(var key in localStorage){
@@ -1015,6 +1062,9 @@ function scoreStore(){
 }
 
 function leaderboard(){
+	//get each leaderboard entry. Sort into order and display to the screen.
+	//https://stackoverflow.com/questions/5117127/use-dynamic-variable-names-in-javascript
+	
 	var divIn = document.getElementById('changeMe');
 	const heading = document.createElement("h1");
 	var desc = document.createElement('p');
@@ -1082,7 +1132,7 @@ function leaderboard(){
 		}
 	}
 	
-	personStore.sort(compareAge);
+	personStore.sort(compareScore);
 	console.log(personStore);
 		
 	for(var i = 0; i < personStore.length; i++){
@@ -1127,11 +1177,15 @@ function leaderboard(){
 	fontChange();
 }
 
-function compareAge(a,b){
-		return b.score - a.score;
+function compareScore(a,b){
+	//sort array of scores based on score
+	//https://www.sitepoint.com/sort-an-array-of-objects-in-javascript/
+	
+	return b.score - a.score;
 }
 
 function helpModal(){
+	//display modal containing help info and also allow fullscreen
 	var fs = document.getElementById('goFull');
 	var link = document.getElementById('helpMe');
 	var span = document.getElementsByClassName("close")[0];
@@ -1163,6 +1217,7 @@ function helpModal(){
 }
 
 function bikeModal() {
+	//show the modal describing the bike build page.
 	var elem = document.getElementById('help-link');
 	var modal = document.getElementById("bike-modal");
 	var span = document.getElementsByClassName("close")[1];
@@ -1183,27 +1238,33 @@ function bikeModal() {
 }
 
 function openFullscreen(elem) {
+	//open full screen
+	//https://www.w3schools.com/howto/howto_js_fullscreen.asp
+	
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) { /* Safari */
+  } else if (elem.webkitRequestFullscreen) { 
     elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE11 */
+  } else if (elem.msRequestFullscreen) { 
     elem.msRequestFullscreen();
   }
 }
 
 function openNav(){
+	//open side navigation menu
 	document.getElementById("sideNav").style.width = "250px";
 	document.getElementById('changeMe').style.opacity = "0.5";	
 
 }
 
 function closeNav(){
+	//close side navigation menu
 	document.getElementById("sideNav").style.width = "0";
 	document.getElementById('changeMe').style.opacity = "1";
 }
 
 function volume(){
+	//adjust volume
 	var slider = document.getElementById('myRange');
 	var audios = document.getElementsByClassName('audio');
 	
@@ -1216,6 +1277,7 @@ function volume(){
 }
 
  function playOpen(){
+	 //play background music when modal closes
 	var backT = document.getElementById('back');
 	var modal = document.getElementById('sound-modal');
 	backT.play();

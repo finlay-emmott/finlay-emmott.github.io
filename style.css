@@ -1,135 +1,112 @@
+/* site background colour */
 body {
 	background-color:#e1f16b;
 }
 
-#mainMenu {
-	list-style-type:none;
-	background-position:bottom;
-}
-
-
-/* The side navigation menu */
+/* The side navigation menu - Help from https://www.w3schools.com/howto/howto_js_sidenav.asp */
 .sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #272727; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+	height: 100%;
+	width: 0; 
+	position: fixed; 
+	z-index: 1;
+	top: 0; 
+	left: 0;
+	background-color: #272727; 
+	overflow-x: hidden; 
+	padding-top: 60px; 
+	transition: 0.5s;
 }
 
-/* The navigation menu links */
+/* nav menu links */
 .sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #e1f16b;
-  display: block;
-  transition: 0.3s;
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #e1f16b;
+	display: block;
+	transition: 0.3s;
 }
 
-/* When you mouse over the navigation links, change their color */
+/* nav menu links hover */
 .sidenav a:hover {
-  color: #2c346b;
+	color: #2c346b;
 }
 
-/* Position and style the close button (top right corner) */
+/* close button style */
 .sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
 }
 
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
+/* display buttons inline */
 .btn-choice{
 	display:flex;
 	width:40%;
 	margin:auto;
 }
 
+/* dispay home screen buttons in a tower */
 .btn-home{
 	display:block;
 }
 
+/* styling for unifomr buttons */
 .btn-group {
-  /*background-color: #e598d8;  Green background */
-  background-color: #2c346b;
-  /*border: 1px solid #ff66c4;  Green border */
-  border:none;
-  color: white; /* White text */
-  padding: 10px 24px 10px; /* Some padding */
-  cursor: pointer; /* Pointer/hand icon */
-  width: fit-content;  /*Set a width if needed */
-  /*display: block;  Make the buttons appear below each other */
-  
-  font-size:17px;
-  margin-bottom:1em;
-  font-family:'Open Sans';
-  border-radius:6px;
-  margin-left:auto;
-  margin-right:auto;
-  
-  
-  /*max-width:90%;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;*/
+	background-color: #2c346b;
+	border:none;
+	color: white;
+	padding: 10px 24px 10px;
+	cursor: pointer;
+	width: fit-content;
+	font-size:17px;
+	margin-bottom:1em;
+	font-family:'Open Sans';
+	border-radius:6px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .btn-group:not(:last-child) {
-  border-bottom: none; /* Prevent double borders */
+  border-bottom: none; 
 }
 
-/* Add a background color on hover */
+/* button group hover colour */
 .btn-group:hover {
-  background-color: #a0f8ee;
+	background-color: #a0f8ee;
 	color:#272727;
 }
 
-#bikeButton {
-	/*float:right;
-	margin-right:20px;*/
 
-}
-
-/* The Modal (background) */
+/* modal background */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content/Box */
+/* modal display box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%; 
   border-radius: 6px;
   text-align:center;
   overflow:auto;
 }
 
-/* The Close Button */
+/* modal close button */
 #close {
 	color: #aaa;
 	float: right;
@@ -151,6 +128,9 @@ body {
   cursor: pointer;
 }
 
+/* Grid wrapper for bike select screen - help from https://www.w3schools.com/css/css_grid.asp */
+/* More grid help from - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Box_Alignment_in_CSS_Grid_Layout */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column */
 .grid-wrapper {
 	display: grid;
 	grid-template-columns: auto auto;
@@ -162,9 +142,6 @@ body {
 	
 }
 
-.grid-article {
-
-}
 #right {
 	border-radius:6px;
 	padding:0px;
@@ -192,6 +169,7 @@ body {
 	border-right: 1px solid black;
 }
 
+/* when grid items selected */
 .select {
 	display: grid;
 	grid-column-gap: 1px;
@@ -202,6 +180,7 @@ body {
 	grid-column:1;
 }
 
+/* bike components */
 .grid-item {
 	
 	border: 1px solid black;
@@ -219,6 +198,7 @@ body {
 	grid-row: 2;
 }
 
+/* heading style */
 .page-head {
 	text-align: center;
 	font-family: Teko;
@@ -228,6 +208,7 @@ body {
 	margin-top:0;
 }
 
+/* modal sub-heading style */
 .modal-head{
 	text-align: center;
 	font-family: Teko;
@@ -237,75 +218,7 @@ body {
 	margin-top:0;
 }
 
-#first {
-	grid-area:first;
-	background-color : green;
-	grid-row:1;
-	grid-column:1/3;
-	align-self:center;
-}
-
-#second {
-	grid-area:second;
-	background-color : green;
-	grid-row:1;
-	grid-column:3;
-}
-
-#third {
-	grid-area:third;
-	background-color : green;
-	grid-row:2;
-	grid-column:1/4;
-}
-
-#image1 {
-	grid-area:image1;
-	grid-row:3;
-	grid-column:1/2;
-	justify-self:end;
-}
-
-#image2 {
-	grid-area:image2;
-	grid-row:3;
-	grid-column:2/3;
-}
-
-#image3 {
-	grid-area:image3;
-	grid-row:3;
-	grid-column:3;
-	justify-self:start;
-}
-
-#fourth {
-	grid-area:fourth;
-	background-color : green;
-}
-
-#fifth {
-	grid-area:fifth;
-	background-color : green;
-}
-
-#sixth {
-	grid-area:sixth;
-	background-color : green;
-}
-
-.grid-wrap-learn {
-}
-
-.imageRow {
-	width:100px;
-}
-
-.typeDiv {
-	display:flex;
-	background-color:red;
-}
-
+/* external link styles */
 .learn-style{
 	text-align:center;
 	font-size:20px;
@@ -314,6 +227,7 @@ body {
 	padding:10px;
 }
 
+/* paragraph description styles */
 .desc-style {
 	text-align:center;
 	font-size:20px;
@@ -324,6 +238,7 @@ body {
 	margin-bottom:10px;
 }
 
+/* listof links styles */
 .list {
 	text-align:center;
 	font-family:'Teko';
@@ -341,6 +256,7 @@ a:hover{
 	color:#2c346b;
 }
 
+/*Help from - https://css-tricks.com/adding-stroke-to-web-text/ */
 #help-link {
 	color:#a0f8ee;
 	-webkit-text-stroke: .75px #272727;
@@ -351,6 +267,7 @@ a:hover{
 	-webkit-text-stroke: 0px;
 }
 
+/* styling for graphics on each element */
 .graphic {
 	display:block;
 	max-width:50%;
@@ -360,6 +277,7 @@ a:hover{
 	border: 3px solid #272727;
 }
 
+/* leaderboard styling */
 .leaderboard {
 	display:grid;
 	grid-template-columns:auto auto auto;
@@ -411,6 +329,7 @@ a:hover{
 	color:white;
 }
 
+/* Styling for custom scroll bar - help from https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp*/
 /* width */
 ::-webkit-scrollbar {
   width: 20px;
@@ -461,22 +380,20 @@ a:hover{
 	background-color:#B08D57;
 }
 
-
+/* styling for volume slider */
 .slidecontainer {
-  width: 90%; /* Width of the outside container */
+  width: 90%;
   margin:auto;
 }
 
-
 .slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
+  -webkit-appearance: none; 
   appearance: none;
-  width: 100%; /* Full-width */
-  height: 15px; /* Specified height */
-  background: #2c346b; /* Grey background */
-  outline: none; /* Remove outline */
-  /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  width: 100%;
+  height: 15px; 
+  background: #2c346b;
+  outline: none; 
+  -webkit-transition: .2s; 
   transition: opacity .2s;
   border-radius:10px;
 }
