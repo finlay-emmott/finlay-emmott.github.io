@@ -22,15 +22,15 @@
 	<a id='helpMe' class='menuBut'>Help</a>
 </nav>
 
-<img src='menu.png' onclick="openNav()"></img>
+<img src='./graphics/menu.png' onclick="openNav()"></img>
 
-<audio src='cheer.mp3' id='cheer' class='audio'></audio>
-<audio src='horn.mp3' id='horn' class='audio'></audio>
-<audio src='background.mp3' id='back' class='audio'></audio>
-<audio src='heart.mp3' id='heart' class='audio'></audio>
-<audio src='crash.mp3' id='crash' class='audio'></audio>
-<audio src='heli.mp3' id='heli' class='audio'></audio>
-<audio src='hosp.mp3' id='hosp' class='audio'></audio>
+<audio src='./sound/cheer.mp3' id='cheer' class='audio'></audio>
+<audio src='./sound/horn.mp3' id='horn' class='audio'></audio>
+<audio src='./sound/background.mp3' id='back' class='audio'></audio>
+<audio src='./sound/heart.mp3' id='heart' class='audio'></audio>
+<audio src='./sound/crash.mp3' id='crash' class='audio'></audio>
+<audio src='./sound/heli.mp3' id='heli' class='audio'></audio>
+<audio src='./sound/hosp.mp3' id='hosp' class='audio'></audio>
 
 <script src="script.js"></script>
 
@@ -72,7 +72,6 @@
 
 <div id="sound-modal" class="modal">
   <div class="modal-content">
-    <span class="close" id='close2'>&times;</span>
     <h1 class='page-head'>Welcome</h1>
 	<p class='desc-style'>Clicking yes will close this pop-up and start the background music. Music and sound affects play throughout this game. You can adjust the volume within the settings menu (top left) Enjoy!</p>
 	<button class='btn-group' onclick='playOpen()'>Yes</button>

@@ -96,7 +96,7 @@ function startGate(){
 	var desc = document.createElement("p");
 	var img = document.createElement('img');
 	
-	img.src = 'startgate.jpg';
+	img.src = './graphics/startgate.jpg';
 	img.className = 'graphic';
 	
 	desc.innerHTML = "As the rider in front of you dissapears down the hill you take your place in the start gate. Pulling on your helmet and adjusting your goggles as you prepare to race in your first downhill world cup. Your heart quickens as you grip the bars and stand up on your pedals. As the third beep sounds you power out of the gate. A perfect start."
@@ -273,15 +273,15 @@ function bikeSelect() {
 	var right2 = document.createElement('img');
 	var right3 = document.createElement('img');
 	
-	item1.src='RS.png';
-	item2.src='FOX.png';
-	item3.src='OHLINS.png';
-	item4.src='RSS.png';
-	item5.src='OHLINSS.png';
-	item6.src='FOXS.png';
-	item7.src='ALT.png';
-	item8.src='MOND.png';
-	item9.src='COVE.png';
+	item1.src='./parts/RS.png';
+	item2.src='./parts/FOX.png';
+	item3.src='./parts/OHLINS.png';
+	item4.src='./parts/RSS.png';
+	item5.src='./parts/OHLINSS.png';
+	item6.src='./parts/FOXS.png';
+	item7.src='./parts/ALT.png';
+	item8.src='./parts/MOND.png';
+	item9.src='./parts/COVE.png';
 
 	item1.className='grid-item';
 	item2.className='grid-item';
@@ -293,9 +293,9 @@ function bikeSelect() {
 	item8.className='grid-item';
 	item9.className='grid-item';
 
-	right1.src='fill.png';
-	right2.src='fill.png';
-	right3.src='fill.png';
+	right1.src='./parts/fill.png';
+	right2.src='./parts/fill.png';
+	right3.src='./parts/fill.png';
 	
 	right1.className='grid-item';
 	right2.className='grid-item';
@@ -314,7 +314,7 @@ function bikeSelect() {
 		item2.style.backgroundColor = 'transparent';
 		item3.style.backgroundColor = 'transparent';
 		
-		right1.src = 'RS.png';
+		right1.src = './parts/RS.png';
 		forkScore = 30;
 		forkP = 1;
 	}
@@ -323,7 +323,7 @@ function bikeSelect() {
 		item2.style.backgroundColor = '#ffb2f4';
 		item3.style.backgroundColor = 'transparent';
 		
-		right1.src = 'FOX.png';
+		right1.src = './parts/FOX.png';
 		forkScore = 10;
 		forkP = 1;
 	}
@@ -332,7 +332,7 @@ function bikeSelect() {
 		item2.style.backgroundColor = 'transparent';
 		item3.style.backgroundColor = '#ffb2f4';
 		
-		right1.src = 'OHLINS.png';
+		right1.src = './parts/OHLINS.png';
 		forkScore = 30;
 		forkP = 1;
 	}
@@ -341,7 +341,7 @@ function bikeSelect() {
 		item5.style.backgroundColor = 'transparent';
 		item6.style.backgroundColor = 'transparent';
 		
-		right2.src = 'RSS.png';
+		right2.src = './parts/RSS.png';
 		shockScore = 10;
 		shockP = 1;
 	}
@@ -350,7 +350,7 @@ function bikeSelect() {
 		item5.style.backgroundColor = '#ffb2f4';
 		item6.style.backgroundColor = 'transparent';
 		
-		right2.src = 'OHLINSS.png';
+		right2.src = './parts/OHLINSS.png';
 		shockScore = 20;
 		shockP = 1;
 	}
@@ -359,7 +359,7 @@ function bikeSelect() {
 		item5.style.backgroundColor = 'transparent';
 		item6.style.backgroundColor = '#ffb2f4';
 		
-		right2.src = 'FOXS.png';
+		right2.src = './parts/FOXS.png';
 		shockScore = 30;
 		shockP = 1;
 	}
@@ -368,7 +368,7 @@ function bikeSelect() {
 		item8.style.backgroundColor = 'transparent';
 		item9.style.backgroundColor = 'transparent';
 		
-		right3.src = 'ALT.png';
+		right3.src = './parts/ALT.png';
 		frameScore = 10;
 		frameP = 1;
 	}
@@ -377,7 +377,7 @@ function bikeSelect() {
 		item8.style.backgroundColor = '#ffb2f4';
 		item9.style.backgroundColor = 'transparent';
 		
-		right3.src = 'MOND.png';
+		right3.src = './parts/MOND.png';
 		frameScore = 20;
 		frameP = 1;
 	}
@@ -386,14 +386,10 @@ function bikeSelect() {
 		item8.style.backgroundColor = 'transparent';
 		item9.style.backgroundColor = '#ffb2f4';
 		
-		right3.src = 'COVE.png';
+		right3.src = './parts/COVE.png';
 		frameScore = 30;
 		frameP = 1;
 	}
-	
-	//helpLink.className = 'desc-style';
-	//helpLink.innerHTML = 'Need some more info on bike parts?'
-	//helpLink.id = 'help-link';
 	
 	var audio = document.getElementById('heart');
 	var audio2 = document.getElementById('back');
@@ -413,17 +409,12 @@ function bikeSelect() {
 		audio2.pause();
 		audio.play();
 		startGate();
-		
-		
-		
-		//podium();
 		} else { 
 			alert("You need to pick one fork, frame and shock before continuing!");
 	}
 	}
 
 	divIn.appendChild(heading);
-	//desc.appendChild(helpLink);
 	divIn.appendChild(desc);
 	
 	divIn.appendChild(bigBox);
@@ -464,7 +455,7 @@ function firstCorner(){
 	var btnBlock = document.createElement('div');
 	btnBlock.className = 'btn-choice';
 	
-	img.src = 'firstCorner.jpg';
+	img.src = './graphics/firstCorner.jpg';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'You approach the first corner...';
@@ -515,7 +506,7 @@ function miniCrash(){
 	var btn = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'crash.png';
+	img.src = './graphics/crash.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'Uh-oh... You came off the track!';
@@ -554,7 +545,7 @@ function bigJump(){
 	var btn2 = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'jump.png';
+	img.src = './graphics/jump.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = "Woah there's a big jump ahead";
@@ -610,7 +601,7 @@ function treeCorner(){
 	var btn2 = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'corner.png';
+	img.src = './graphics/corner.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'The corner of tech!';
@@ -658,7 +649,7 @@ function backflip(){
 	var btn = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'back.jpg';
+	img.src = './graphics/back.jpg';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'That backflip was INSANE';
@@ -696,7 +687,7 @@ function motorway(){
 	var btn2 = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'motorway.png';
+	img.src = './graphics/motorway.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'The fastes section of track lies ahead...';
@@ -705,7 +696,7 @@ function motorway(){
 	desc.innerHTML = "The motorway, a section of track with big jumps and flat full speed ground lies ahead. You've been riding with Bruni all season and know that a quick fork adjustment might you go even faster... But is there anything more effective than pedalling through as hard as possible?";
 	desc.className = 'desc-style';
 	
-	btn.innerHTML = "Peddle peddle peddle";
+	btn.innerHTML = "Pedal pedal pedal";
 	btn.className = 'btn-group btn-choice';
 	
 	btn2.innerHTML = "Adjust your fork! #BruniMode";
@@ -746,7 +737,7 @@ function techSection(){
 	var btn2 = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'tech.png';
+	img.src = './graphics/tech.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'The risky tech section';
@@ -803,7 +794,7 @@ function bruniMode(){
 	var btn = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'bruni.jpg';
+	img.src = './graphics/bruni.jpg';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'You went.... BRUNI MODE!!!';
@@ -836,7 +827,7 @@ function finishStraight(){
 	var btn2 = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'finish.png';
+	img.src = './graphics/finish.png';
 	img.className = 'graphic';
 	
 	heading.innerHTML = "It's your chance to shine!";
@@ -894,7 +885,7 @@ function podium(){
 	var img = document.createElement('img');
 	
 	img.src = 'podium.png';
-	img.className = 'graphic';
+	img.className = './graphics/graphic';
 	
 	heading.innerHTML = 'THE PODIUM';
 	heading.className = 'page-head';
@@ -929,7 +920,7 @@ function heliEvac(){
 	var img = document.createElement('img');
 	
 	img.src = 'air.jpg';
-	img.className = 'graphic';
+	img.className = './graphics/graphic';
 	
 	heading.innerHTML = 'In the helicopter...';
 	heading.className = 'page-head';
@@ -966,7 +957,7 @@ function hospital(){
 	var btn = document.createElement("button");
 	var img = document.createElement('img');
 	
-	img.src = 'hosp.jpg';
+	img.src = './graphics/hosp.jpg';
 	img.className = 'graphic';
 	
 	heading.innerHTML = 'Much better! Better luck next time...';
@@ -1007,11 +998,9 @@ function scoreStore(){
 	
 	do{
 		var name = window.prompt('Please enter a username!');
-		//var date = new Date();
 	} while(name !== null && name === "");
 	
 	var user_score = score;
-	//localStorage.setItem(name, user_score);
 	var newKey = keyCount + 1;
 	
 	var person = {
@@ -1035,20 +1024,12 @@ function leaderboard(){
 	
 	var board = document.createElement('div')
 	
-	//var name = window.prompt('Please enter a username!');
-	//var date = new Date();
-	//var user_score = score;
-	//localStorage.setItem(name, user_score);
-	
 	var inScore = document.createElement('p');
 	
 	board.className = 'leaderboard';
 	
 	result.innerHTML = score;
 	result.className = 'result-item';
-	
-	img.src = 'test.jpg';
-	img.className = 'graphic';
 	
 	heading.innerHTML = 'LEADERBOARD';
 	heading.className = 'page-head';
@@ -1213,12 +1194,12 @@ function openFullscreen(elem) {
 
 function openNav(){
 	document.getElementById("sideNav").style.width = "250px";
-	document.getElementById('changeMe').style.opacity = "0.5";
+	document.getElementById('changeMe').style.opacity = "0.5";	
+
 }
 
 function closeNav(){
 	document.getElementById("sideNav").style.width = "0";
-	//document.body.style.backgroundColor = "white";
 	document.getElementById('changeMe').style.opacity = "1";
 }
 
