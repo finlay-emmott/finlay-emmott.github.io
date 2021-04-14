@@ -926,7 +926,7 @@ function podium(){
 	var img = document.createElement('img');
 	
 	img.src = './graphics/podium.png';
-	img.className = 'grahpic';
+	img.className = 'graphic';
 	
 	heading.innerHTML = 'THE PODIUM';
 	heading.className = 'page-head';
