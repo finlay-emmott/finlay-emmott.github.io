@@ -6,7 +6,21 @@ var score = 0;
 function buildPage(){
 	
 	//setup game
-	buttons()
+	goHome();
+	buttons();
+	helpModal();
+}
+
+function goHome(){
+	//reload the page to return home from the navigation button
+	//will confirm reload
+	
+	var divIn = document.getElementById('changeMe');
+	var gh = document.getElementById('home');
+	
+	gh.onclick = function(){
+		location.reload();
+	}
 }
 
 function buttons(){
@@ -233,4 +247,17 @@ function sat1(){
 	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
+}
+
+function openNav(){
+	//open side navigation menu
+	document.getElementById("sideNav").style.width = "250px";
+	document.getElementById('changeMe').style.opacity = "0.5";	
+
+}
+
+function closeNav(){
+	//close side navigation menu
+	document.getElementById("sideNav").style.width = "0";
+	document.getElementById('changeMe').style.opacity = "1";
 }
