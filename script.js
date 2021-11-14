@@ -161,7 +161,7 @@ function sun(){
 	
 	var desc5 = document.createElement('p');
 	desc5.className = 'desc-style';
-	desc5.innerHTML = '<img src="qr.png">';
+	desc5.innerHTML = '<img src="qr.PNG">';
 	
 	var desc2 = document.createElement('p');
 	desc2.className = 'desc-style';
