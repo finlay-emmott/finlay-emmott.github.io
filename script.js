@@ -203,10 +203,16 @@ function mon(){
 	
 	var desc = document.createElement('p');
 	desc.className = 'desc-style';
-	desc.innerHTML = 'Sorry... it is not Monday yet, or laziness has taken over so come back later.';
+	desc.innerHTML = 'Orite sweethceeks, I completley forgot today - so here is a poem about dragons as a late addition :)';
+	
+	
+	var desc1 = document.createElement('p');
+	desc1.className = 'desc-style';
+	desc1.innerHTML = '<img src="drag.jpg">';
 	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
+	divIn.appendChild(desc1);
 }
 
 function tue(){
@@ -218,10 +224,30 @@ function tue(){
 	
 	var desc = document.createElement('p');
 	desc.className = 'desc-style';
-	desc.innerHTML = 'Sorry... it is not Tuesday yet, or laziness has taken over so come back later.';
+	desc.innerHTML = "Depending on when you're reading this we either have 5 or almost only 4 days left of staying inside. I hope you be feeling less shit today.";
+	
+	var desc1 = document.createElement('p');
+	desc1.className = 'desc-style';
+	desc1.innerHTML = "I'm uber prepared today (it's 23:37 on Monday as I type this) I am stupidly awake and bored because I don't have you to voice note. Honestly, imagine trying to sleep your COVID away ;)";
+	
+	var desc4 = document.createElement('p');
+	desc4.className = 'desc-style';
+	desc4.innerHTML = "Today's random things include a word search, x, y, and z.";
+	
+	var desc2 = document.createElement('p');
+	desc2.className = 'desc-style';
+	desc2.innerHTML = "Word search is full of random han/finlay related words. There's 12 to find. I can give you the list of words if you want. Idk how easy it'll be to find them... it's a shame you can't highlight on screens?";
+	
+	var desc3 = document.createElement('p');
+	desc3.className = 'desc-style';
+	desc3.innerHTML = '<img src="search.png">';
 	
 	divIn.appendChild(heading);
 	divIn.appendChild(desc);
+	divIn.appendChild(desc1);
+	//divIn.appendChild(desc4);
+	divIn.appendChild(desc2);
+	divIn.appendChild(desc3);
 }
 
 function wed(){
